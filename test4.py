@@ -54,8 +54,8 @@ for num in range(2, 10):
 
 # 4.6 Definiendo funciones
     #Podemos crear una funcion que escriba la serie de Fibonacci hasta un limite determinado:
-print_title("Definiendo funciones")
-print_subtitle("Funcion de la serie de Fibonacci")
+print_title("4.6 Definiendo funciones")
+print_subtitle("Fauncion de la serie de Fibonacci")
 
 def fib(n):
     a, b = 0, 1
@@ -82,8 +82,8 @@ def fib2(n):
 f100 = fib2(100)
 print(f100)
 
-print_title("Definicion de funciones")
-print_subtitle("argumentos con valores por omision")
+print_title("4.7 Definicion de funciones")
+print_subtitle("4.7.1 Argumentos con valores por omision")
 
 def ask_ok(prompt, retries=4, reminder="Por favor intentelo de nuevo"):
     while True:
@@ -98,5 +98,28 @@ def ask_ok(prompt, retries=4, reminder="Por favor intentelo de nuevo"):
         print(reminder)
 
 ask_ok("ok, has invertido en Cardano?")
+
+print_subtitle("4.7.2 Palabras claves como argumentos")
+
+def parrot(voltage, state='a stiff', action='voom', type='Norwegian Blue'):
+    print("-- Este loro no haría", action, end=' ')
+    print("if you put", voltage, "volts through it.")
+    print("-- Lovely plumage, the", type)
+    print("-- It's", state, "!")
+
+parrot(1000);
+
+print_subtitle("4.7.3 Parametros especiales")
+
+print("""def f(pos1, pos2, /, pos_or_kwd, *, kwd1, kwd2):
+      -----------    ----------     ----------
+       |             |                  |
+       |        Positional or keyword   |
+       |                                - Keyword only
+        -- Positional only""")
+
+
+
+
 
 
