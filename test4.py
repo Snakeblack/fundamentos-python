@@ -109,6 +109,23 @@ def parrot(voltage, state='a stiff', action='voom', type='Norwegian Blue'):
 
 parrot(1000);
 
+print_subtitle("Ejemplo nº2")
+
+def cheeseshop(kind, *arguments, **keywords):
+    print("-- Do you have any", kind, "?")
+    print("-- I'm sorry, we're all out of", kind)
+    for arg in arguments:
+        print(arg)
+    print("-" * 40)
+    for kw in keywords:
+        print(kw, ":", keywords[kw])
+
+cheeseshop("Limburger", "It's very runny, sir.",
+           "It's really very, VERY runny, sir.",
+           shopkeeper="Michael Palin",
+           client="John Cleese",
+           sketch="Cheese Shop Sketch")
+
 print_subtitle("4.7.3 Parametros especiales")
 
 print("""def f(pos1, pos2, /, pos_or_kwd, *, kwd1, kwd2):
@@ -118,7 +135,19 @@ print("""def f(pos1, pos2, /, pos_or_kwd, *, kwd1, kwd2):
        |                                - Keyword only
         -- Positional only""")
 
+# Si / y * no están presentes en la definición de la función, los parámetros pueden ser pasados a una función posicionalmente o por palabra clave.
 
+def standard_arg(arg):
+    print(arg)
+
+def pos_only_arg(arg, /):
+    print(arg)
+
+def kwd_only_arg(*, arg):
+    print(arg)
+
+def combined_example(pos_only, /, standard, *, kwd_only):
+    print(pos_only, standard, kwd_only)
 
 
 
