@@ -89,9 +89,9 @@ def ask_ok(prompt, retries=4, reminder="Por favor intentelo de nuevo"):
     while True:
         ok = input(prompt)
         if ok in ('y', 'ye', 'yes', 'si'):
-            return print("entonces to the moon") and True
+            return print("bien hecho!") and True
         if ok in ('n', 'no', 'nop', 'nope'):
-            return print("eres tontisimo") and False
+            return print("y a que esperas?") and False
         retries = retries - 1
         if retries < 0:
             raise ValueError("respuesta invalida")
@@ -101,39 +101,39 @@ ask_ok("ok, has invertido en Cardano?")
 
 print_subtitle("4.7.2 Palabras claves como argumentos")
 
-def parrot(voltage, state='a stiff', action='voom', type='Norwegian Blue'):
-    print("-- Este loro no haría", action, end=' ')
-    print("if you put", voltage, "volts through it.")
-    print("-- Lovely plumage, the", type)
-    print("-- It's", state, "!")
+def device(voltage, state='baratas', action='BOOM', type='Acer'):
+    print("-- Este dispositivo hizo", action, end=' ')
+    print("cuando hubo un pico de", voltage, "voltios")
+    print("-- No tenia protección de subida de tension, no me gusta la marca", type)
+    print("-- Son", state, ":/")
 
-parrot(1000);
+device(10000);
 
 print_subtitle("Ejemplo nº2")
 
-def cheeseshop(kind, *arguments, **keywords):
-    print("-- Do you have any", kind, "?")
-    print("-- I'm sorry, we're all out of", kind)
+def burgershop(kind, *arguments, **keywords):
+    print("-- Tienes alguna", kind, "?")
+    print("-- Lo siento, no nos queda", kind)
     for arg in arguments:
         print(arg)
     print("-" * 40)
     for kw in keywords:
         print(kw, ":", keywords[kw])
 
-cheeseshop("Limburger", "It's very runny, sir.",
-           "It's really very, VERY runny, sir.",
-           shopkeeper="Michael Palin",
-           client="John Cleese",
-           sketch="Cheese Shop Sketch")
+burgershop("Hamburguesa", "Respuesta random.",
+           "Otra respuesta random.",
+           vendedor="Ana",
+           cliente="Juan",
+           tienda="Hamburgueseria")
 
 print_subtitle("4.7.3 Parametros especiales")
 
 print("""def f(pos1, pos2, /, pos_or_kwd, *, kwd1, kwd2):
       -----------    ----------     ----------
        |             |                  |
-       |        Positional or keyword   |
-       |                                - Keyword only
-        -- Positional only""")
+       |  Posicionales y palabras clave |
+       |                                - Palabras clave
+        -- Solo posicionales""")
 
 # Si / y * no están presentes en la definición de la función, los parámetros pueden ser pasados a una función posicionalmente o por palabra clave.
 
@@ -150,5 +150,21 @@ def combined_example(pos_only, /, standard, *, kwd_only):
     print(pos_only, standard, kwd_only)
 
 
+# "4.7.4 Listas de argumentos arbitrarios"
 
+def write_multiple_items(file, separartor, *args):
+    file.write(separartor.join(args))
+
+def concat(*args, sep="/"):
+    return sep.join(args)
+
+concat("earth", "mars", "venus")
+concat("earth", "mars", "venus", sep=".")
+
+print_subtitle("4.7.5 Desempaquetando una lista de argumentos")
+
+list(range(3, 6))
+
+args = [3, 6]
+list(range(*args))
 
